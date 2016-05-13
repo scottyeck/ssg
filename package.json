@@ -1,0 +1,30 @@
+{
+  "name": "ssg",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node src/lib/build.js",
+    "test": "mocha --opts test/mocha.opts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "get-set": "git+ssh://git@github.com/scottyeck/getset.git"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "fs-extra": "0.30.0",
+    "glob": "7.0.3",
+    "grunt": "1.0.1",
+    "grunt-cli": "1.2.0",
+    "lodash": "4.11.2",
+    "meta-marked": "0.4.1",
+    "mocha": "2.4.5",
+    "node-sass": "3.7.0",
+    "pug": "2.0.0-alpha6",
+    "rfr": "1.2.3",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0"
+  }
+}

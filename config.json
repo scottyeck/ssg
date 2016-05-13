@@ -1,0 +1,7 @@
+{
+	"DIR": {
+		"posts": "./posts",
+		"resources": "./resources",
+		"build": "./dist"
+	}
+}
