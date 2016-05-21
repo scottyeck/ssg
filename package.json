@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "npm run build && concurrently \"npm run dev:html\" \"npm run dev:sass\" \"npm start\"",
+    "dev:html": "chokidar 'src/**/*.pug' -c 'npm run build:html'  -i '*.scss'",
+    "dev:sass": "npm run build:sass -- --watch src/resources/**/*.scss",
     "build": "npm run clean && npm run build:html && npm run build:sass",
     "build:sass": "node-sass src/resources/scss/screen.scss dist/css/screen.css",
     "build:html": "node src/lib/build.js",
@@ -25,6 +28,8 @@
   },
   "devDependencies": {
     "chai": "3.5.0",
+    "chokidar-cli": "^1.2.0",
+    "concurrently": "^2.1.0",
     "glob": "7.0.3",
     "grunt": "1.0.1",
     "grunt-cli": "1.2.0",
