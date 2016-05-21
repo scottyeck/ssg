@@ -3,7 +3,8 @@
 var $ = require('jquery');
 
 var $scoper = $('.page-scoper'),
-	$header = $('.page-header');
+	$header = $('.page-header'),
+	$trigger = $('.trigger');
 
 function Nav() {
 	this.visible = false;
@@ -35,3 +36,6 @@ Nav.prototype.hide = function() {
 };
 
 window.nav = new Nav();
+$trigger.on('click', function() {
+	window.nav.toggle();
+});

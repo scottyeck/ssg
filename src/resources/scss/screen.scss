@@ -45,6 +45,28 @@ nav li {
 	font-size: 0.9375rem;
 }
 
+.trigger {
+	position: fixed;
+	top: 1rem;
+	left: 1rem;
+	padding: 1rem;
+	border-radius: 0.25rem;
+	display: inline-block;
+	cursor: pointer;
+	z-index: 2000;
+	line-height: 0.75rem;
+	transition: background-color 0.2s linear;
+
+	&:hover {
+		background-color: rgba(225,225,225, 0.7);
+	}
+
+	&:active {
+		transition: none;
+		background-color: rgba(200,200,200, 0.7);
+	}
+}
+
 .page-content {
 	max-width: 40rem;
 	margin: 0 auto;
