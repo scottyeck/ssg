@@ -14,7 +14,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "css-reset-and-normalize-sass": "^0.1.2",
     "fs-extra": "^0.30.0",
     "get-set": "git+ssh://git@github.com/scottyeck/getset.git",
     "lodash": "4.11.2",
