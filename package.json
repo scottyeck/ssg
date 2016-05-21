@@ -4,25 +4,33 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node src/lib/build.js",
+    "build": "npm run clean && npm run build:html && npm run build:sass",
+    "build:sass": "node-sass src/resources/scss/screen.scss dist/css/screen.css",
+    "build:html": "node src/lib/build.js",
+    "clean": "rm -rf dist",
+    "start": "http-server -p 1823 ./dist -c-1",
     "test": "mocha --opts test/mocha.opts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "get-set": "git+ssh://git@github.com/scottyeck/getset.git"
+    "css-reset-and-normalize-sass": "^0.1.2",
+    "fs-extra": "^0.30.0",
+    "get-set": "git+ssh://git@github.com/scottyeck/getset.git",
+    "lodash": "4.11.2",
+    "meta-marked": "0.4.1",
+    "node-sass": "3.7.0",
+    "pug": "^2.0.0-alpha6",
+    "sassline": "^2.1.2",
+    "typesettings": "^3.0.1"
   },
   "devDependencies": {
     "chai": "3.5.0",
-    "fs-extra": "0.30.0",
     "glob": "7.0.3",
     "grunt": "1.0.1",
     "grunt-cli": "1.2.0",
-    "lodash": "4.11.2",
-    "meta-marked": "0.4.1",
+    "http-server": "^0.9.0",
     "mocha": "2.4.5",
-    "node-sass": "3.7.0",
-    "pug": "2.0.0-alpha6",
     "rfr": "1.2.3",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0"

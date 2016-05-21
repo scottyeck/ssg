@@ -1,7 +1,11 @@
 {
 	"DIR": {
-		"posts": "./posts",
-		"resources": "./resources",
-		"build": "./dist"
-	}
+		"posts": "posts",
+		"resources": "resources",
+		"build": "dist",
+		"template": "ssg/src/views"
+	},
+	"content": [{
+
+	}]
 }

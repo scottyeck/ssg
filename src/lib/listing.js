@@ -52,4 +52,10 @@ Listing.prototype.sort = function() {
 	return this;
 };
 
+Listing.prototype.toPlainArray = function() {
+	return _.map(this.get('posts'), function(post) {
+		return post.toPlainObj();
+	});
+};
+
 module.exports = Listing;
