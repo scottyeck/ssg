@@ -6,15 +6,55 @@ body {
 	min-width: 320px;
 }
 
-.page-wrapper {
-	padding: 1rem;
+.page-scoper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: scroll;
 
+	transition: padding-top 0.3s ease;
+	
+	padding: 1rem;
 	@include breakpoint(break-1) {
 		padding: 2rem;
 	}
+
+	@include breakpoint(break-2) {
+		padding: 4rem 2rem;
+	}
+}
+
+.page-header {
+	position: fixed;
+	top: -75px;
+	left: 0;
+	width: 100%;
+	padding: 0.5rem;
+	text-align: center;
+	background-color: white;
+
+	transition: top 0.3s ease;
+	z-index: 100;
+}
+
+nav li {
+	display: inline-block;
+	padding: 1rem 0.5rem;
+	font-size: 0.9375rem;
 }
 
 .page-content {
 	max-width: 40rem;
 	margin: 0 auto;
+}
+
+// 
+// UTILS
+//
+.reset-list {
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style-type: none;
 }
