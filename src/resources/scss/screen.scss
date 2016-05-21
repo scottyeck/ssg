@@ -1,6 +1,7 @@
 @import "node_modules/sassline/assets/sass/sassline-base";
 
-body {
+body,
+.page-scoper {
 	background-color: #F1F1F1;
 	color: #333;
 	min-width: 320px;
