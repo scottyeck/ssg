@@ -17,6 +17,12 @@ $captionColour: #A0ABAF;
 
 @import "node_modules/sassline/assets/sass/sassline-base";
 
+@mixin disable-transition() {
+	.disable-transition & {
+		transition: none;
+	}
+}
+
 body,
 .page-scoper {
 	background-color: #F1F1F1;
@@ -47,6 +53,7 @@ $scoper-padding-top-break-2: 64px;
 	overflow: scroll;
 
 	transition: padding-top 0.3s ease;
+	@include disable-transition();
 	
 	padding: $scoper-padding-top;
 	@include breakpoint(break-1) {
@@ -78,8 +85,9 @@ $scoper-padding-top-break-2: 64px;
 	padding: 0.5rem;
 	background-color: white;
 	text-align: right;
-	transition: top 0.3s ease;
 	z-index: 100;
+	transition: top 0.3s ease;
+	@include disable-transition();
 
 	@include breakpoint(break-1) {
 		top: $header-height-break-1 * -1;
