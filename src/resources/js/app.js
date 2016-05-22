@@ -22,4 +22,14 @@ $(function() {
 	$(window).on('resize', _.debounce(function() {
 		$('body').removeClass('disable-transition');
 	}, 250));
+
+	$('.page-scoper').on('scroll', _.throttle(function() {
+		$('body').addClass('show-trigger');
+	}, 250));
+
+	$('.page-scoper').on('scroll', _.debounce(function() {
+		setTimeout(function() {
+			$('body').removeClass('show-trigger');
+		}, 3000);
+	}, 250));
 });

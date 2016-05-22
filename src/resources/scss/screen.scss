@@ -125,13 +125,48 @@ nav li {
 	line-height: 0.75rem;
 	transition: background-color 0.2s linear;
 
+	opacity: 0;
+	visibility: hidden;
+	cursor: auto;
+	pointer-events: none;
+	background-color: rgba(255,255,255, 0.85);
+
+	transition: visibility 0.3s, opacity 0.3s ease, background-color 0.2s linear;
+
 	&:hover {
-		background-color: rgba(225,225,225, 0.7);
+		background-color: rgba(255, 255, 255, 0.95);
 	}
 
 	&:active {
+		background-color: rgba(255, 255, 255, 1);
 		transition: none;
-		background-color: rgba(200,200,200, 0.7);
+	}
+
+	.show-trigger &,
+	.nav-active & {
+		cursor: pointer;
+		visibility: visible;
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	@include breakpoint(break-1) {
+		cursor: pointer;
+		visibility: visible;
+		opacity: 1;
+		pointer-events: auto;
+	
+		background-color: transparent;
+		transition: background-color 0.2s linear;
+
+		&:hover {
+			background-color: rgba(225,225,225, 0.7);
+		}
+
+		&:active {
+			transition: none;
+			background-color: rgba(200,200,200, 0.7);
+		}
 	}
 }
 
