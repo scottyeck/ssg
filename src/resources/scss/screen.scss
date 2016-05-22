@@ -7,6 +7,15 @@ body,
 	min-width: 320px;
 }
 
+$header-height: 60px;
+$header-height-break-1: 70px;
+$header-height-break-2: 75px;
+$header-height-break-3: 85px;
+
+$scoper-padding-top: 16px;
+$scoper-padding-top-break-1: 32px;
+$scoper-padding-top-break-2: 64px;
+
 .page-scoper {
 	position: fixed;
 	top: 0;
@@ -17,19 +26,31 @@ body,
 
 	transition: padding-top 0.3s ease;
 	
-	padding: 1rem;
+	padding: $scoper-padding-top;
 	@include breakpoint(break-1) {
-		padding: 2rem;
+		padding: $scoper-padding-top-break-1;
 	}
 
 	@include breakpoint(break-2) {
-		padding: 4rem 2rem;
+		padding: $scoper-padding-top-break-2 2rem;
+	}
+
+	.nav-active & {
+		padding-top: $header-height + $scoper-padding-top;
+
+		@include breakpoint(break-1) {
+			padding-top: $header-height-break-1 + $scoper-padding-top-break-1;
+		}
+
+		@include breakpoint(break-2) {
+			padding-top: $header-height-break-2 + $scoper-padding-top-break-2;
+		}
 	}
 }
 
 .page-header {
 	position: fixed;
-	top: -75px;
+	top: $header-height * -1;
 	left: 0;
 	width: 100%;
 	padding: 0.5rem;
@@ -38,6 +59,22 @@ body,
 
 	transition: top 0.3s ease;
 	z-index: 100;
+
+	@include breakpoint(break-1) {
+		top: $header-height-break-1 * -1;
+	}
+
+	@include breakpoint(break-2) {
+		top: $header-height-break-2 * -1;
+	}
+
+	@include breakpoint(break-3) {
+		top: $header-height-break-3 * -1;
+	}
+
+	.nav-active & {
+		top: 0 !important;
+	}
 }
 
 nav li {
