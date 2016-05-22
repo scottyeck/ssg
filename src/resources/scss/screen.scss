@@ -51,6 +51,7 @@ $scoper-padding-top-break-2: 64px;
 	width: 100%;
 	height: 100%;
 	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
 
 	transition: padding-top 0.3s ease;
 	@include disable-transition();
