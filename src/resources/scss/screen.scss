@@ -1,9 +1,31 @@
+$bodytype: (
+  font-family: 'Roboto Slab, serif',
+  regular: 400,
+  bold: 700,
+  italic: italic,
+  cap-height: 0.66
+);
+
+$headingtype: (
+  font-family: 'Hammersmith One, sans-serif',
+  regular: 400,
+  bold: 700,
+  cap-height: 0.66
+);
+
+$captionColour: #A0ABAF;
+
 @import "node_modules/sassline/assets/sass/sassline-base";
 
 body,
 .page-scoper {
 	background-color: #F1F1F1;
 	color: #333;
+}
+
+body,
+.page-scoper,
+.page-header {
 	min-width: 320px;
 }
 
@@ -54,9 +76,8 @@ $scoper-padding-top-break-2: 64px;
 	left: 0;
 	width: 100%;
 	padding: 0.5rem;
-	text-align: center;
 	background-color: white;
-
+	text-align: right;
 	transition: top 0.3s ease;
 	z-index: 100;
 
@@ -65,6 +86,7 @@ $scoper-padding-top-break-2: 64px;
 	}
 
 	@include breakpoint(break-2) {
+		text-align: left;
 		top: $header-height-break-2 * -1;
 	}
 
@@ -79,7 +101,7 @@ $scoper-padding-top-break-2: 64px;
 
 nav li {
 	display: inline-block;
-	padding: 1rem 0.5rem;
+	padding: 1rem 1rem 1rem 0;
 	font-size: 0.9375rem;
 }
 
@@ -105,7 +127,7 @@ nav li {
 	}
 }
 
-.page-content {
+.centered-page-content {
 	max-width: 40rem;
 	margin: 0 auto;
 }
