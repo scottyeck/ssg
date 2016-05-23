@@ -145,8 +145,7 @@ nav li {
 		transition: none;
 	}
 
-	.show-trigger &,
-	.nav-active & {
+	.show-trigger & {
 		cursor: pointer;
 		visibility: visible;
 		opacity: 1;
