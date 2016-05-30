@@ -15,6 +15,7 @@ function validateHref(href) {
 
 var Post = GetSet.interface({
 	title:		{ type: 'string', 	required: true },
+	caption: 	{ type: 'string', 	required: false },
 	date:		{ type: 'date', 	required: true },
 	author:		{ type: 'string', 	required: true },
 	template:	{ type: 'string', 	required: true },

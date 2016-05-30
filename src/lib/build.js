@@ -36,6 +36,10 @@ function assembleListing() {
 			markdown: postConfig.markdown
 		});
 
+		if (postConfig.meta.caption) {
+			post.set('caption', postConfig.meta.caption);
+		}
+
 		listing.addPost(post);
 	});
 
