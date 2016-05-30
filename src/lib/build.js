@@ -46,21 +46,39 @@ function assembleListing() {
 	return listing;
 }
 
+// function assembleRouteList(listing) {
+
+// 	var routes = [];
+
+// 	_.each(listing, function(post) {
+
+// 		var locals = _.extend({}, post, {
+// 			pretty: true
+// 		});
+
+// 		var templatePath = 'src/views/content/article.pug',
+// 			routeParent = '/dist/blog',
+// 			routeName = post.filename;
+// 			htmlPath = path.join('dist/blog', post.filename);
+
+
+// 	});
+
+// }
+
 var listing = assembleListing();
 
 _.each(listing.toPlainArray(), function(post) {
-	
-	var templatePath = 'src/views/content/article.pug',
-		htmlPath = path.join('dist/blog', post.filename),
-		html;
 
-	try {
-		html = pug.renderFile(templatePath, {
-			pretty: true
-		});
-	} catch(err) {
-		console.error(err);
-	}
+	var templatePath = 'src/views/content/article.pug',
+		htmlPath = path.join('dist/blog', post.filename);
+
+	var locals = _.extend({}, {
+		post: post,
+		pretty: true
+	});
+
+	var html = pug.renderFile(templatePath, locals);
 
 	fse.ensureDirSync('dist/blog');
 	fs.writeFileSync(htmlPath, html);
