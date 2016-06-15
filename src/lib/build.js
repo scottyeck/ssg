@@ -83,6 +83,7 @@ _.each(listing.toPlainArray(), function(post) {
 		htmlPath = path.join('dist/blog', post.filename);
 
 	var locals = _.extend({}, {
+		nav: config.nav,
 		post: post,
 		pretty: true
 	});
@@ -106,6 +107,7 @@ _.each(config.routes, function(route) {
 	var routeContent = config.content[route.route] || {};
 
 	var locals = _.extend({}, {
+		nav: config.nav,
 		pretty: true
 	}, routeContent);
 

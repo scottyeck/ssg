@@ -25,9 +25,10 @@ html(lang= "en")
 			header.page-header
 				nav.centered-page-content
 					ul.reset-list
-						li Foo
-						li Bar
-						li Baz
+
+						each entry in locals.nav
+							li
+								a(href= entry.href)= entry.text
 
 			.page-scoper
 				.centered-page-content

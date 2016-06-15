@@ -13,5 +13,12 @@
 		"index": {
 			"title": "This is a homepage."
 		}
-	}
+	},
+	"nav": [{
+		"text": "Home",
+		"href": "/"
+	}, {
+		"text": "Blog",
+		"href": "/blog"
+	}]
 }
