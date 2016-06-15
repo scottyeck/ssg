@@ -1,6 +1,5 @@
 ---
 title: I am an example post.
-caption: This is a caption.
 date: 2016-05-05 19:34:00
 author: Scotty Eckenthal
 email: scott.eckenthal@gmail.com

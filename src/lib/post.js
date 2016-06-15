@@ -1,7 +1,8 @@
 'use strict';
 
-var _ = require('lodash'),
-	GetSet = require('get-set');
+var _ 			= require('lodash'),
+	dateFormat 	= require('dateformat'),
+	GetSet 		= require('get-set');
 
 function validateEmail(email) {
 	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -14,19 +15,28 @@ function validateHref(href) {
 }
 
 var Post = GetSet.interface({
-	title:		{ type: 'string', 	required: true },
-	caption: 	{ type: 'string', 	required: false },
-	date:		{ type: 'date', 	required: true },
-	author:		{ type: 'string', 	required: true },
-	template:	{ type: 'string', 	required: true },
-	html:		{ type: 'string', 	required: true },
-	markdown:	{ type: 'string', 	required: true },
-	email:		{ type: 'string', 	required: true,		validate: validateEmail },
-	filename:	{ type: 'string',	required: false, 	validate: validateHref }
+	title:			{ type: 'string', 	required: true },
+	date:			{ type: 'date', 	required: true },
+	author:			{ type: 'string', 	required: true },
+	template:		{ type: 'string', 	required: true },
+	html:			{ type: 'string', 	required: true },
+	markdown:		{ type: 'string', 	required: true },
+	email:			{ type: 'string', 	required: true,		validate: validateEmail },
+	filename:		{ type: 'string',	required: false, 	validate: validateHref },
+	formattedDate:	{ type: 'string',	required: false }
 });
 
 Post.prototype.onConstruct = function() {
-	this.setFilename();	
+	this.setFilename();
+	this.setFormattedDate();
+};
+
+Post.prototype.setFormattedDate = function() {
+
+	var date = this.get('date'),
+		formattedDate = dateFormat(date, 'mmm dd yyyy');
+
+	this.set('formattedDate', formattedDate);
 };
 
 Post.prototype.setFilename = function() {

@@ -19,6 +19,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dateformat": "^1.0.12",
     "fs-extra": "^0.30.0",
     "get-set": "git+ssh://git@github.com/scottyeck/getset.git",
     "lodash": "4.11.2",
