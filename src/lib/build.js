@@ -46,25 +46,34 @@ function assembleListing() {
 	return listing;
 }
 
-// function assembleRouteList(listing) {
+function assembleRouteList(listing) {
 
-// 	var routes = [];
+	var routes = [];
 
-// 	_.each(listing, function(post) {
+	_.each(listing, function(post) {
 
-// 		var locals = _.extend({}, post, {
-// 			pretty: true
-// 		});
+		var locals = _.extend({}, {
+			post: post,
+			pretty: true
+		});
 
-// 		var templatePath = 'src/views/content/article.pug',
-// 			routeParent = '/dist/blog',
-// 			routeName = post.filename;
-// 			htmlPath = path.join('dist/blog', post.filename);
+		var templatePath = 'src/views/content/article.pug',
+			routeParent = '/dist/blog',
+			routeName = post.filename;
+			htmlPath = path.join('dist/blog', post.filename);
 
+		routes.push({
+			template: templatePaht,
+			route: {
+				dirname: routeParent,
+				filename: routeName,
+			
+			},
+		});
 
-// 	});
+	});
 
-// }
+}
 
 var listing = assembleListing();
 
@@ -82,5 +91,5 @@ _.each(listing.toPlainArray(), function(post) {
 
 	fse.ensureDirSync('dist/blog');
 	fs.writeFileSync(htmlPath, html);
-	console.log('Writing file: ' + htmlPath);
+	console.log('Writing file: %s', htmlPath);
 });
