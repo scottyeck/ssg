@@ -93,3 +93,23 @@ _.each(listing.toPlainArray(), function(post) {
 	fs.writeFileSync(htmlPath, html);
 	console.log('Writing file: %s', htmlPath);
 });
+
+_.each(config.routes, function(route) {
+
+	var templatePath = path.join('src/views/content/', route.template + '.pug'),
+		htmlPath = path.join('dist', route.route + '.html');
+
+	if (!fs.existsSync(templatePath)) {
+		throw Error('Could not find template: ' + templatePath);
+	}
+
+	var routeContent = config.content[route.route] || {};
+
+	var locals = _.extend({}, {
+		pretty: true
+	}, routeContent);
+
+	var html = pug.renderFile(templatePath, locals);
+	fs.writeFileSync(htmlPath, html);
+	console.log('Writing file: %s', htmlPath);
+});

@@ -5,7 +5,13 @@
 		"build": "dist",
 		"template": "ssg/src/views"
 	},
-	"content": [{
-
-	}]
+	"routes": [{
+		"route": "index",
+		"template": "home"
+	}],
+	"content": {
+		"index": {
+			"title": "This is a homepage."
+		}
+	}
 }
