@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npm run build && concurrently \"npm run dev:html\" \"npm run dev:sass\" \"npm run dev:js\" \"npm start\"",
     "dev:js": "webpack --watch",
-    "dev:html": "chokidar 'src/**/*.pug' -c 'npm run build:html'  -i 'src/resources/**/*'",
+    "dev:html": "chokidar 'src/**/*' 'posts/**/*.md' -c 'npm run build:html'  -i 'src/resources/**/*'",
     "dev:sass": "npm run build:sass -- --watch src/resources/**/*.scss",
     "build": "npm run clean && npm run build:html && npm run build:js && npm run build:sass",
     "build:sass": "node-sass src/resources/scss/screen.scss dist/css/screen.css",
