@@ -1,9 +1,10 @@
 extends ../layout/default.pug
 
 block content
-	article.typeset.single-measure
+	.centered-page-content
+		article.typeset.single-measure
 
-		h1= post.title
-		h2.caption= post.formattedDate
+			h1= post.title
+			h2.caption= post.formattedDate
 
-		div!= post.html
+			div!= post.html

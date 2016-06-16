@@ -14,10 +14,10 @@
 	}],
 	"content": {
 		"index": {
-			"title": "This is a homepage."
+			"title": "Hark!"
 		},
 		"blog": {
-			"title": "blog"
+			"title": "@scottyeck's blog"
 		}
 	},
 	"nav": [{

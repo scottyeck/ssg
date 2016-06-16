@@ -1,20 +1,18 @@
 extends ../layout/default.pug
 
 block content
+	.centered-page-content
+		article.typeset.single-measure
 
+			h1= locals.title
 
-	article.typeset.single-measure
+			ul.reset-list
+				each entry in locals.blogroll
+					li.margin-bottom-large
+						h3= entry.title + " "
+							a(href= entry.href)
+						h4.caption= entry.formattedDate
 
-		h1= locals.title
+						div!= entry.summary
 
-		ul.reset-list
-			each entry in locals.blogroll
-				li.margin-bottom-large
-					h2= entry.title + " "
-						a(href= entry.href)
-							span.fa.fa-book.icon-med
-					h2.caption= entry.formattedDate
-
-					div!= entry.summary
-
-					a(href= entry.href) Continue reading...
+						a(href= entry.href) Continue reading...

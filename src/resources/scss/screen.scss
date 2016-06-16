@@ -51,9 +51,20 @@ $header-height-break-3: 85px;
 $scoper-padding-top: 16px;
 $scoper-padding-top-break-1: 32px;
 $scoper-padding-top-break-2: 64px;
+$scoper-padding-side-break-2: 2rem;
 
 $nav-close-transition-time: 1s;
 $nav-open-transition-time: .2s;
+
+%bg {
+	background-size: cover;
+}
+
+.bg-cave {
+	@extend %bg;
+	background-image: url('/img/bg/cave.jpg');
+	background-position: bottom center;
+}
 
 .page-scoper {
 	position: fixed;
@@ -73,7 +84,7 @@ $nav-open-transition-time: .2s;
 	}
 
 	@include breakpoint(break-2) {
-		padding: $scoper-padding-top-break-2 2rem;
+		padding: $scoper-padding-top-break-2 $scoper-padding-side-break-2;
 	}
 
 	.nav-active & {
@@ -192,6 +203,53 @@ nav li {
 	margin: 0 auto;
 }
 
+.hero {
+	height: 22rem;
+	@include breakpoint(break-1) {
+		height: 32rem;
+	}
+}
+
+.ghost * {
+	color: white;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+@mixin vert-center-shared() {
+	display: inline-block;
+	vertical-align: middle;
+	max-width: 97.5%;
+}
+
+@mixin vert-center-ghost() {
+	height: 100%;
+	content: " ";
+}
+
+.vert-center,
+.vert-center-parent:before {
+	@include vert-center-shared();	
+}
+
+.vert-center-parent:before {
+	@include vert-center-ghost();	
+}
+
+.full-width-module {
+	margin: $scoper-padding-top * -1 $scoper-padding-top * -1 0;	
+
+	@include breakpoint(break-1) {
+		margin: $scoper-padding-top-break-1 * -1 $scoper-padding-top-break-1 * -1 0;
+	}
+
+	@include breakpoint(break-2) {
+		margin: $scoper-padding-top-break-2 * -1 $scoper-padding-side-break-2 * -1 0;
+	}
+}
+
 // 
 // UTILS
 //
@@ -199,6 +257,10 @@ nav li {
 	padding-left: 0;
 	margin-bottom: 0;
 	list-style-type: none;
+}
+
+.margin-top-tiny {
+	margin-top: 0.5rem;
 }
 
 .margin-bottom-large {
