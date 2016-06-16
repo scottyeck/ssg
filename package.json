@@ -8,11 +8,10 @@
     "dev:js": "webpack --watch",
     "dev:html": "chokidar 'config.json' 'src/**/*' 'posts/**/*.md' -c 'npm run build:html'  -i 'src/resources/**/*'",
     "dev:sass": "npm run build:sass -- --watch src/resources/**/*.scss",
-    "build": "npm run clean && npm run build:html && npm run build:js && npm run build:sass && npm run copy:static",
+    "build": "npm run clean && npm run build:html && npm run build:js && npm run build:sass",
     "build:sass": "node-sass src/resources/scss/screen.scss dist/css/screen.css",
     "build:html": "node src/lib/build.js",
     "build:js": "webpack",
-    "copy:static": "cp -r src/resources/img dist/",
     "clean": "rm -rf dist",
     "start": "http-server -p 1823 ./dist -c-1",
     "test": "mocha --opts test/mocha.opts"
