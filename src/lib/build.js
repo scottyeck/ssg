@@ -75,17 +75,23 @@ function assembleRouteList(listing) {
 
 }
 
-var listing = assembleListing();
+var listing = assembleListing().toPlainArray();
 
-_.each(listing.toPlainArray(), function(post) {
+function getLocals() {
+	return {
+		nav: config.nav,
+		blogroll: listing,
+		pretty: true
+	};
+}
+
+_.each(listing, function(post) {
 
 	var templatePath = 'src/views/content/article.pug',
 		htmlPath = path.join('dist/blog', post.filename);
 
-	var locals = _.extend({}, {
-		nav: config.nav,
-		post: post,
-		pretty: true
+	var locals = _.extend({}, getLocals(), {
+		post: post
 	});
 
 	var html = pug.renderFile(templatePath, locals);
@@ -106,10 +112,7 @@ _.each(config.routes, function(route) {
 
 	var routeContent = config.content[route.route] || {};
 
-	var locals = _.extend({}, {
-		nav: config.nav,
-		pretty: true
-	}, routeContent);
+	var locals = _.extend({}, getLocals(), routeContent);
 
 	var html = pug.renderFile(templatePath, locals);
 	fs.writeFileSync(htmlPath, html);

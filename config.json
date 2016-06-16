@@ -8,10 +8,16 @@
 	"routes": [{
 		"route": "index",
 		"template": "home"
+	}, {
+		"route": "blog",
+		"template": "blog"
 	}],
 	"content": {
 		"index": {
 			"title": "This is a homepage."
+		},
+		"blog": {
+			"title": "blog"
 		}
 	},
 	"nav": [{
@@ -19,6 +25,6 @@
 		"href": "/"
 	}, {
 		"text": "Blog",
-		"href": "/blog"
+		"href": "/blog.html"
 	}]
 }

@@ -1,7 +1,9 @@
 'use strict';
 
 var _ 			= require('lodash'),
+	path		= require('path'),
 	dateFormat 	= require('dateformat'),
+	marked 		= require('meta-marked'),
 	GetSet 		= require('get-set');
 
 function validateEmail(email) {
@@ -23,12 +25,22 @@ var Post = GetSet.interface({
 	markdown:		{ type: 'string', 	required: true },
 	email:			{ type: 'string', 	required: true,		validate: validateEmail },
 	filename:		{ type: 'string',	required: false, 	validate: validateHref },
-	formattedDate:	{ type: 'string',	required: false }
+	formattedDate:	{ type: 'string',	required: false },
+	summary:		{ type: 'string',	required: false },
+	href:			{ type: 'string',	required: false }
 });
 
 Post.prototype.onConstruct = function() {
 	this.setFilename();
 	this.setFormattedDate();
+	this.setSummary();
+};
+
+Post.prototype.setSummary = function() {
+	var md = this.get('markdown');
+	var summary = md.split(' ').slice(0, 30).join(' ') + '...';
+
+	this.set('summary', marked(summary).html);
 };
 
 Post.prototype.setFormattedDate = function() {
@@ -47,6 +59,7 @@ Post.prototype.setFilename = function() {
 		.replace(/[^a-zA-Z-]/g, '') + '.html';
 
 	this.set('filename', filename);
+	this.set('href', path.join('/blog/', filename));
 };
 
 module.exports = Post;

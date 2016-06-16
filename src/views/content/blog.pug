@@ -1,0 +1,20 @@
+extends ../layout/default.pug
+
+block content
+
+
+	article.typeset.single-measure
+
+		h1= locals.title
+
+		ul.reset-list
+			each entry in locals.blogroll
+				li.margin-bottom-large
+					h2= entry.title + " "
+						a(href= entry.href)
+							span.fa.fa-book.icon-med
+					h2.caption= entry.formattedDate
+
+					div!= entry.summary
+
+					a(href= entry.href) Continue reading...
