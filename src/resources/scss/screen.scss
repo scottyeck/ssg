@@ -13,7 +13,11 @@ $headingtype: (
   cap-height: 0.66
 );
 
-$captionColour: #A0ABAF;
+$bodyColour: 			#333;
+$captionColour: 		#A0ABAF;
+$linkColour: 			#3F940E;
+$backgroundColour: 		#F1F1F1;
+$hoverColour: 			$linkColour + #222;
 
 @import "node_modules/sassline/assets/sass/sassline-base";
 
@@ -23,10 +27,14 @@ $captionColour: #A0ABAF;
 	}
 }
 
+a {
+	transition: 0.2s ease color;
+}
+
 body,
 .page-scoper {
-	background-color: #F1F1F1;
-	color: #333;
+	background-color: $backgroundColour;
+	color: $bodyColour;
 }
 
 body,
