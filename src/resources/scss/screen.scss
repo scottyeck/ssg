@@ -52,6 +52,9 @@ $scoper-padding-top: 16px;
 $scoper-padding-top-break-1: 32px;
 $scoper-padding-top-break-2: 64px;
 
+$nav-close-transition-time: 1s;
+$nav-open-transition-time: .2s;
+
 .page-scoper {
 	position: fixed;
 	top: 0;
@@ -61,7 +64,7 @@ $scoper-padding-top-break-2: 64px;
 	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
 
-	transition: padding-top 0.3s ease;
+	transition: padding-top $nav-close-transition-time ease;
 	@include disable-transition();
 	
 	padding: $scoper-padding-top;
@@ -74,6 +77,7 @@ $scoper-padding-top-break-2: 64px;
 	}
 
 	.nav-active & {
+		transition: padding-top $nav-open-transition-time ease;
 		padding-top: $header-height + $scoper-padding-top;
 
 		@include breakpoint(break-1) {
@@ -95,7 +99,7 @@ $scoper-padding-top-break-2: 64px;
 	background-color: white;
 	text-align: left;
 	z-index: 100;
-	transition: top 0.3s ease;
+	transition: top $nav-close-transition-time ease;
 	@include disable-transition();
 
 	@include breakpoint(break-1) {
@@ -113,6 +117,7 @@ $scoper-padding-top-break-2: 64px;
 
 	.nav-active & {
 		top: 0 !important;
+		transition: top $nav-open-transition-time ease;
 	}
 }
 

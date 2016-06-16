@@ -15,16 +15,13 @@ $(function() {
 		menu;
 
 	function Menu(ops) {
-		this.visible = false;
+		this.visible = true;
 	}
 
 	Menu.prototype.hide = function() {
 		var self = this;
 		$('body').removeClass('nav-active');
 		this.visible = false;
-		setTimeout(function() {
-			trigger.hide();
-		}, 2000);
 	};
 
 	Menu.prototype.show = function() {
@@ -74,11 +71,12 @@ $(function() {
 		trigger.show();
 	}, 250));
 
-	$('.page-scoper').on('scroll', _.debounce(function() {
-		setTimeout(function() {
-			if (!menu.visible) {
-				trigger.hide();
-			}
-		}, 2000);
-	}, 250));
+	var throttleMenuHide = _.throttle(function() {
+		menu.hide();
+	}, 250);
+
+	$('.page-scoper').on('scroll', function() {
+		throttleMenuHide();
+		$('.page-scoper').off('scroll', throttleMenuHide);
+	});
 });
