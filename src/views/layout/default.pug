@@ -1,3 +1,5 @@
+include ../includes/mixins.pug
+
 doctype html
 html(lang= "en")
 	head
@@ -23,19 +25,7 @@ html(lang= "en")
 					span.fa.fa-ellipsis-h
 
 			header.page-header
-				nav.centered-page-content
-					ul.reset-list.inline-block
-
-						each entry in locals.nav
-							li
-								a(href= entry.href)= entry.text
-
-					ul.reset-list.social.right.inline-block
-
-						each entry in locals.social
-							li
-								a(href= entry.href)
-									span.fa(class= "fa-" + entry.slug)
+				+nav
 
 			.page-scoper
 				block content
