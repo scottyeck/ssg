@@ -66,6 +66,12 @@ $nav-open-transition-time: .2s;
 	background-position: bottom center;
 }
 
+.bg-woods {
+	@extend %bg;
+	background-image: url('/img/woods.jpg');
+	background-position: center center;
+}
+
 .page-scoper {
 	position: fixed;
 	top: 0;
@@ -203,6 +209,16 @@ nav li {
 	margin: 0 auto;
 }
 
+.spaced-page-content {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+
+	@include breakpoint(break-1) {
+		padding-top: 3rem;
+		padding-bottom: 3rem;		
+	}
+}
+
 .hero {
 	height: 22rem;
 	@include breakpoint(break-1) {
@@ -211,7 +227,7 @@ nav li {
 }
 
 .ghost * {
-	color: white;
+	color: white !important;
 }
 
 h1 {
@@ -250,6 +266,51 @@ h1 {
 	}
 }
 
+$gutter: 1rem;
+
+.row {
+
+	margin-left: $gutter * -0.5;
+	margin-right: $gutter * -0.5;
+
+	&:after {
+		content: " ";
+		display: block;
+	}
+
+	.col {
+		float: left;
+		padding-left: $gutter * 0.5;
+		padding-right: $gutter * 0.5;
+
+		&.end {
+			float: right;
+		}
+	}
+
+	@for $i from 1 through 12 {
+		.small-#{$i} {
+			width: 100% / 12 * $i;
+		}
+	}
+
+	@include breakpoint(break-1) {
+		@for $i from 1 through 12 {
+			.medium-#{$i} {
+				width: 100% / 12 * $i;
+			}
+		}
+	}
+
+	@include breakpoint(break-2) {
+		@for $i from 1 through 12 {
+			.large-#{$i} {
+				width: 100% / 12 * $i;
+			}
+		}
+	}
+}
+
 // 
 // UTILS
 //
@@ -271,6 +332,9 @@ h1 {
 	text-align: center;
 }
 
+.height-full {
+	height: 100%;
+}
 
 .fa.icon-med { font-size: 0.75em; }
 .fa.icon-small { font-size: 0.5em; }
