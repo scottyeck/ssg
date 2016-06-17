@@ -52,6 +52,11 @@ Listing.prototype.sort = function() {
 	return this;
 };
 
+Listing.prototype.applyToEach = function(func) {
+	_.each(this.get('posts'), func);
+	return this;
+};
+
 Listing.prototype.toPlainArray = function() {
 	return _.map(this.get('posts'), function(post) {
 		return post.toPlainObj();

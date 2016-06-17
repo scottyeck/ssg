@@ -79,4 +79,28 @@ describe('Listing', function() {
 			expect(listing.get('posts')[1]).to.equal(older);
 		});
 	});
+
+	describe('applyToEach()', function() {
+
+		it('It applies callbacks to each member as desired.', function() {
+			var listing = new Listing({ sorted: false }),
+				older = new Post(postConfig),
+				newer = new Post(postConfig);
+
+			older.set('date', new Date(100));
+			newer.set('date', new Date(200));
+
+			listing
+				.addPost(older)
+				.addPost(newer);
+
+			listing.applyToEach(function(post) {
+				post.set('author', 'John Doe');
+			});
+
+			_.each(listing.get('posts'), function(post) {
+				expect(post.get('author')).to.equal('John Doe');
+			});
+		});
+	});
 });
