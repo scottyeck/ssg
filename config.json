@@ -32,10 +32,10 @@
 		"href": "/blog.html"
 	}],
 	"social": [{
-		"slug": "envelope-o",
+		"slug": "envelope",
 		"href": "mailto:scott.eckenthal@gmail.com"
 	}, {
-		"slug": "github",
+		"slug": "github-alt",
 		"href": "https://github.com/scottyeck"
 	}, {
 		"slug": "linkedin",

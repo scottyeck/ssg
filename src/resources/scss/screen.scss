@@ -144,11 +144,16 @@ $nav-open-transition-time: .2s;
 	}
 }
 
-nav li {
-	display: inline-block;
-	padding: 1rem 1.5rem 1rem 0;
-	font-size: 0.9375rem;
-	font-weight: bold;
+nav {
+	li {
+		display: inline-block;
+		padding: 1rem 1.5rem 1rem 0;
+		font-size: 0.9375rem;
+		font-weight: bold;
+	}
+	ul:last-child li:last-child {
+		padding-right: 0;
+	}
 }
 
 .social-list {
@@ -252,6 +257,12 @@ nav li {
 	padding: 0.5rem 1rem 0;
 	opacity: 1;
 	visibility: visible;
+
+	a {
+		color: rgba(#FFF, 0.75);
+		&:hover { color: #FFF; }
+		&:active { color: rgba(#FFF, 0.75); }
+	}
 
 	transition: visibility 0s, opacity 0.2s ease;
 
