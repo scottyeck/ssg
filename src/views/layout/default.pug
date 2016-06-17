@@ -24,11 +24,18 @@ html(lang= "en")
 
 			header.page-header
 				nav.centered-page-content
-					ul.reset-list
+					ul.reset-list.inline-block
 
 						each entry in locals.nav
 							li
 								a(href= entry.href)= entry.text
+
+					ul.reset-list.social.right.inline-block
+
+						each entry in locals.social
+							li
+								a(href= entry.href)
+									span.fa(class= "fa-" + entry.slug)
 
 			.page-scoper
 				block content

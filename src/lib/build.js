@@ -80,6 +80,7 @@ var listing = assembleListing().toPlainArray();
 function getLocals() {
 	return {
 		nav: config.nav,
+		social: config.social,
 		blogroll: listing,
 		pretty: true
 	};

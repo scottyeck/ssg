@@ -314,6 +314,14 @@ $gutter: 1rem;
 // 
 // UTILS
 //
+
+.left { float: left; }
+.right { float: right; }
+
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.block { display: block; }
+
 .reset-list {
 	padding-left: 0;
 	margin-bottom: 0;

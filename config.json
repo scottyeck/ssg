@@ -26,5 +26,18 @@
 	}, {
 		"text": "Blog",
 		"href": "/blog.html"
+	}],
+	"social": [{
+		"slug": "envelope-o",
+		"href": "mailto:scott.eckenthal@gmail.com"
+	}, {
+		"slug": "github",
+		"href": "https://github.com/scottyeck"
+	}, {
+		"slug": "linkedin",
+		"href": "https://linkedin.com/in/scotteckenthal"
+	}, {
+		"slug": "instagram",
+		"href": "https://instagram.com/scottyeck"
 	}]
 }
