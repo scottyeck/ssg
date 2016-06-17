@@ -6,6 +6,8 @@ var _ 			= require('lodash'),
 	marked 		= require('meta-marked'),
 	GetSet 		= require('get-set');
 
+var Post;
+
 function validateEmail(email) {
 	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	return re.test(email);
@@ -16,7 +18,11 @@ function validateHref(href) {
 	return re.test(href);
 }
 
-var Post = GetSet.interface({
+function validatePost(post) {
+	return post instanceof Post;
+}
+
+Post = GetSet.interface({
 	title:			{ type: 'string', 	required: true },
 	date:			{ type: 'date', 	required: true },
 	author:			{ type: 'string', 	required: true },
@@ -27,7 +33,9 @@ var Post = GetSet.interface({
 	filename:		{ type: 'string',	required: false, 	validate: validateHref },
 	formattedDate:	{ type: 'string',	required: false },
 	summary:		{ type: 'string',	required: false },
-	href:			{ type: 'string',	required: false }
+	href:			{ type: 'string',	required: false },
+	previous:		{ type: 'object', 	required: false,	validate: validatePost },
+	next:			{ type: 'object', 	required: false,	validate: validatePost },
 });
 
 Post.prototype.onConstruct = function() {
