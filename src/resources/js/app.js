@@ -66,17 +66,4 @@ $(function() {
 	$(window).on('resize', _.debounce(function() {
 		$('body').removeClass('disable-transition');
 	}, 250));
-
-	$('.page-scoper').on('scroll', _.throttle(function() {
-		trigger.show();
-	}, 250));
-
-	var throttleMenuHide = _.throttle(function() {
-		menu.hide();
-	}, 250);
-
-	$('.page-scoper').on('scroll', function() {
-		throttleMenuHide();
-		$('.page-scoper').off('scroll', throttleMenuHide);
-	});
 });
