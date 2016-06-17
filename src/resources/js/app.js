@@ -19,14 +19,12 @@ $(function() {
 	}
 
 	Menu.prototype.hide = function() {
-		var self = this;
 		$('body').removeClass('nav-active');
 		this.visible = false;
 	};
 
 	Menu.prototype.show = function() {
 		$('body').addClass('nav-active');
-		trigger.show();
 		this.visible = true;
 	};
 
@@ -42,15 +40,15 @@ $(function() {
 		this.visible = true;
 	}
 
-	Trigger.prototype.hide = function() {
-		$('body').removeClass('show-trigger');
-		this.visible = false;
-	};
+	// Trigger.prototype.hide = function() {
+	// 	$('body').removeClass('show-trigger');
+	// 	this.visible = false;
+	// };
 
-	Trigger.prototype.show = function() {
-		$('body').addClass('show-trigger');
-		this.visible = true;
-	};
+	// Trigger.prototype.show = function() {
+	// 	$('body').addClass('show-trigger');
+	// 	this.visible = true;
+	// };
 
 	trigger = new Trigger();
 	menu = new Menu();

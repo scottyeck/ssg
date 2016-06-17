@@ -1,3 +1,8 @@
+@mixin clearfix() {
+	content: " ";
+	display: block;
+}
+
 $bodytype: (
   font-family: 'Roboto Slab, serif',
   regular: 400,
@@ -140,8 +145,15 @@ $nav-open-transition-time: .2s;
 
 nav li {
 	display: inline-block;
-	padding: 1rem 1rem 1rem 0;
+	padding: 1rem 1.5rem 1rem 0;
 	font-size: 0.9375rem;
+}
+
+.social-list {
+	float: left;
+	@include breakpoint(break-1) {
+		float: right;
+	}
 }
 
 .trigger {
@@ -274,8 +286,7 @@ $gutter: 1rem;
 	margin-right: $gutter * -0.5;
 
 	&:after {
-		content: " ";
-		display: block;
+		@include clearfix();
 	}
 
 	.col {
@@ -314,6 +325,8 @@ $gutter: 1rem;
 // 
 // UTILS
 //
+
+.clearfix { @include clearfix(); }
 
 .left { float: left; }
 .right { float: right; }

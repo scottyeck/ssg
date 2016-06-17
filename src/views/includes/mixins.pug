@@ -1,12 +1,12 @@
 mixin nav(config)
-	nav.centered-page-content
-		ul.reset-list.inline-block
+	nav.centered-page-content.clearfix
+		ul.reset-list.left.inline-block
 
 			each entry in locals.nav
 				li
 					a(href= entry.href)= entry.text
 
-		ul.reset-list.social.right.inline-block
+		ul.reset-list.social-list.inline-block
 
 			each entry in locals.social
 				li
