@@ -1,14 +1,16 @@
 extends ../layout/default.pug
 
 block content
-	.centered-page-content
-		article.typeset.single-measure
+	.centered-page-content.top-module
+		
+		article.single-measure
 
-			h1= locals.title
+			.typeset
+				h1= locals.title
 
 			ul.reset-list
 				each entry in locals.blogroll
-					li.margin-bottom-large
+					li.margin-bottom-large.typeset
 						h3= entry.title + " "
 							a(href= entry.href)
 						h4.caption= entry.formattedDate
