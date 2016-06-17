@@ -11,11 +11,10 @@ var _ = {
 
 $(function() {
 
-	var trigger,
-		menu;
+	var menu;
 
 	function Menu(ops) {
-		this.visible = true;
+		this.visible = false;
 	}
 
 	Menu.prototype.hide = function() {
@@ -36,21 +35,6 @@ $(function() {
 		}
 	};
 
-	function Trigger() {
-		this.visible = true;
-	}
-
-	// Trigger.prototype.hide = function() {
-	// 	$('body').removeClass('show-trigger');
-	// 	this.visible = false;
-	// };
-
-	// Trigger.prototype.show = function() {
-	// 	$('body').addClass('show-trigger');
-	// 	this.visible = true;
-	// };
-
-	trigger = new Trigger();
 	menu = new Menu();
 
 	$('.trigger').on('click', function() {
@@ -64,4 +48,8 @@ $(function() {
 	$(window).on('resize', _.debounce(function() {
 		$('body').removeClass('disable-transition');
 	}, 250));
+
+	window.setTimeout(function() {
+		$('body').removeClass('disable-transition');
+	}, 750)
 });

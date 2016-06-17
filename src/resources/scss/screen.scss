@@ -174,16 +174,16 @@ nav li {
 	visibility: hidden;
 	cursor: auto;
 	pointer-events: none;
-	background-color: rgba(255,255,255, 0.85);
+	background-color: rgba(255,255,255, 0.4);
 
 	transition: visibility 0.3s, opacity 0.3s ease, background-color 0.2s linear;
 
 	&:hover {
-		background-color: rgba(255, 255, 255, 0.95);
+		background-color: rgba(255, 255, 255, 0.7);
 	}
 
 	&:active {
-		background-color: rgba(255, 255, 255, 1);
+		background-color: rgba(200, 200, 200, 1);
 		transition: none;
 	}
 
@@ -201,17 +201,12 @@ nav li {
 		opacity: 1;
 		pointer-events: auto;
 	
-		background-color: rgba(255, 255, 255, 0.4);
-		transition: background-color 0.2s linear;
-
 		&:hover {
 			right: auto;
-			background-color: rgba(225,225,225, 0.7);
 		}
 
 		&:active {
 			transition: none;
-			background-color: rgba(200,200,200, 0.7);
 		}
 	}
 }
