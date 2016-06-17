@@ -54,7 +54,8 @@ function assembleRouteList(listing) {
 
 		var locals = _.extend({}, {
 			post: post,
-			pretty: true
+			pretty: true,
+			slug: 'article'
 		});
 
 		var templatePath = 'src/views/content/article.pug',
@@ -92,7 +93,10 @@ _.each(listing, function(post) {
 		htmlPath = path.join('dist/blog', post.filename);
 
 	var locals = _.extend({}, getLocals(), {
-		post: post
+		post: post,
+		route: 'article',
+		showNav: true,
+		showTrigger: true
 	});
 
 	var html = pug.renderFile(templatePath, locals);
@@ -113,7 +117,9 @@ _.each(config.routes, function(route) {
 
 	var routeContent = config.content[route.route] || {};
 
-	var locals = _.extend({}, getLocals(), routeContent);
+	var locals = _.extend({}, getLocals(), routeContent, {
+		route: route.route
+	});
 
 	var html = pug.renderFile(templatePath, locals);
 	fs.writeFileSync(htmlPath, html);

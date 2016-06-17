@@ -16,7 +16,11 @@ html(lang= "en")
 		link(href="https://fonts.googleapis.com/css?family=Hammersmith+One|Roboto+Slab:300,700", rel="stylesheet", type="text/css")
 		link(rel= "stylesheet", href= "/css/screen.css")
 
-	body.show-trigger.disable-transition
+	- var bodyClassList = [];
+	- if (locals.showNav) { bodyClassList.push('nav-active'); }
+	- if (locals.showTrigger) { bodyClassList.push('show-trigger'); }
+
+	body.disable-transition(class= bodyClassList, data-route= locals.route)
 	
 		.page-wrapper
 

@@ -14,10 +14,14 @@
 	}],
 	"content": {
 		"index": {
-			"title": "Hark!"
+			"title": "Hark!",
+			"showNav": false,
+			"showTrigger": false
 		},
 		"blog": {
-			"title": "@scottyeck's blog"
+			"title": "@scottyeck's blog",
+			"showNav": true,
+			"showTrigger": true
 		}
 	},
 	"nav": [{

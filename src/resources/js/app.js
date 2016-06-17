@@ -11,10 +11,11 @@ var _ = {
 
 $(function() {
 
-	var menu;
+	var trigger,
+		menu;
 
 	function Menu(ops) {
-		this.visible = false;
+		this.visible = !($('body').data('route') === 'index');
 	}
 
 	Menu.prototype.hide = function() {
@@ -35,6 +36,21 @@ $(function() {
 		}
 	};
 
+	function Trigger() {
+		this.visible = !($('body').data('route') === 'index');
+	}
+
+	Trigger.prototype.hide = function() {
+		$('body').removeClass('show-trigger');
+		this.visible = false;
+	};
+
+	Trigger.prototype.show = function() {
+		$('body').addClass('show-trigger');
+		this.visible = true;
+	};
+
+	trigger = new Trigger();
 	menu = new Menu();
 
 	$('.trigger').on('click', function() {
@@ -51,5 +67,22 @@ $(function() {
 
 	window.setTimeout(function() {
 		$('body').removeClass('disable-transition');
-	}, 750)
+	}, 750);
+
+	if ($('body').data('route') === 'index') {
+		trigger.hide();
+
+		var navHeight = $('.hero-nav').outerHeight();
+		$('.page-scoper').on('scroll', _.throttle(function() {
+
+			console.log($('.hero-nav').offset().top);
+			var navOffset = $('.hero-nav').offset().top;
+
+			if (navOffset * -1 > navHeight) {
+				trigger.show();
+			} else {
+				trigger.hide();
+			}
+		}, 150));
+	}
 });

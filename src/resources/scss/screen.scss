@@ -148,6 +148,7 @@ nav li {
 	display: inline-block;
 	padding: 1rem 1.5rem 1rem 0;
 	font-size: 0.9375rem;
+	font-weight: bold;
 }
 
 .social-list {
@@ -188,7 +189,8 @@ nav li {
 		transition: none;
 	}
 
-	.show-trigger & {
+	.show-trigger &,
+	.nav-active & {
 		cursor: pointer;
 		visibility: visible;
 		opacity: 1;
@@ -197,9 +199,9 @@ nav li {
 
 	@include breakpoint(break-1) {
 		cursor: pointer;
-		visibility: visible;
+		// visibility: visible;
 		left: 1rem;
-		opacity: 1;
+		// opacity: 1;
 		pointer-events: auto;
 	
 		&:hover {
@@ -241,6 +243,26 @@ nav li {
 	height: 22rem;
 	@include breakpoint(break-1) {
 		height: 32rem;
+	}
+}
+
+.hero-nav {
+	width: 100%;
+	position: absolute;
+	padding: 0.5rem 1rem 0;
+	opacity: 1;
+	visibility: visible;
+
+	transition: visibility 0s, opacity 0.2s ease;
+
+	@include breakpoint(break-1) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.nav-active & {
+		visibility: hidden;
+		opacity: 0;
 	}
 }
 
@@ -340,6 +362,9 @@ $gutter: 1rem;
 .inline-block { display: inline-block; }
 .inline { display: inline; }
 .block { display: block; }
+
+.rel { position: relative; }
+.abs { position: absolute; }
 
 .reset-list {
 	padding-left: 0;

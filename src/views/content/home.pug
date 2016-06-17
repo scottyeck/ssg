@@ -4,16 +4,17 @@ block content
 
 	section.hero.bg-woods.full-width-module.ghost
 
-		.centered-page-content.height-full
+		.centered-page-content.height-full.rel
+
+			+nav({
+				classList: ["hero-nav"]
+			})
+
 			.row.height-full
 				.col.small-9.medium-8.end.typeset.height-full.vert-center-parent
 					.vert-center.reset-child-margins
 						h1.beta Scotty Eckenthal
-						h2.caption Brooklyn, NY
-
-						blockquote.reset-child-margins
-							p Web guy. CSS nerd. "I love all dogs."
-
+						h2.caption Web guy. Brooklyn, NY
 
 	section
 
