@@ -13,7 +13,7 @@ var Listing = GetSet.interface({
 Listing.prototype.addPost = function(post, ops) {
 
 	ops = ops || {};
-	ops.disableSort = (_.isUndefined(ops.disableSort) || false);
+	ops.disableSort = (!_.isUndefined(ops.disableSort)) ? ops.disableSort : false;
 
 	if (!(post instanceof Post)) {
 		throw Error('Method `addPost` expected arg `post` to be instance of `Post` but received ' + post);

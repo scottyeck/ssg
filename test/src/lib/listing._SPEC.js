@@ -67,8 +67,8 @@ describe('Listing', function() {
 			newer.set('date', new Date(200));
 
 			listing
-				.addPost(older)
-				.addPost(newer);
+				.addPost(older, { disableSort: true })
+				.addPost(newer, { disableSort: true });
 
 			expect(listing.get('posts')[0]).to.equal(older);
 			expect(listing.get('posts')[1]).to.equal(newer);
