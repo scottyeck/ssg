@@ -3,3 +3,5 @@ npm-debug.log*
 dist/**/*
 !dist/.*
 .DS_Store
+
+src/resources/scss/lib

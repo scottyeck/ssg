@@ -3,10 +3,16 @@
 var _ 			= require('lodash'),
 	path		= require('path'),
 	dateFormat 	= require('dateformat'),
-	marked 		= require('meta-marked'),
+	marked		= require('meta-marked'),
 	GetSet 		= require('get-set');
 
 var Post;
+
+marked.noMeta.setOptions({
+  highlight: function (code) {
+    return require('highlight.js').highlightAuto(code).value;
+  }
+});
 
 function validateEmail(email) {
 	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

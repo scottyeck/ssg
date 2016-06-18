@@ -12,3 +12,11 @@ This is going to be an article. Let's see what a codeblock looks like....
 ```bash
 $ npm install foo --save-dev
 ```
+
+How about a javascript code block...
+
+```js
+function foo(arg) {
+	console.log(arg);
+}
+```
