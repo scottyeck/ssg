@@ -9,7 +9,7 @@
 		"route": "index",
 		"template": "home"
 	}, {
-		"route": "blog",
+		"route": "blogroll",
 		"template": "blog"
 	}],
 	"content": {
@@ -18,7 +18,7 @@
 			"showNav": false,
 			"showTrigger": false
 		},
-		"blog": {
+		"blogroll": {
 			"title": "@scottyeck's blog",
 			"showNav": true,
 			"showTrigger": true
@@ -29,7 +29,7 @@
 		"href": "/"
 	}, {
 		"text": "Blog",
-		"href": "/blog.html"
+		"href": "/blogroll"
 	}],
 	"social": [{
 		"slug": "envelope",

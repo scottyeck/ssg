@@ -61,13 +61,13 @@ Post.prototype.setFormattedDate = function() {
 
 Post.prototype.setFilename = function() {
 	
-	var filename = this.get('title')
+	var slug = this.get('title')
 		.toLowerCase()
 		.replace(/\s/g, '-')
-		.replace(/[^a-zA-Z-]/g, '') + '.html';
+		.replace(/[^a-zA-Z-]/g, '');
 
-	this.set('filename', filename);
-	this.set('href', path.join('/blog/', filename));
+	this.set('filename', slug + '.html');
+	this.set('href', path.join('/blog/', slug));
 };
 
 module.exports = Post;

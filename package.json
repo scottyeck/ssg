@@ -11,9 +11,9 @@
     "build": "npm run clean && npm run build:html && npm run build:js && npm run build:sass && npm run build:static",
     "build:static": "cp -r src/resources/img dist",
     "build:sass": "node-sass src/resources/scss/screen.scss dist/css/screen.css",
-    "build:html": "node src/lib/build.js",
+    "build:html": "rm -rf dist/**/*.html && node src/lib/build.js",
     "build:js": "webpack",
-    "clean": "rm -rf dist",
+    "clean": "ls dist | grep -v .htaccess | xargs -I {} rm -rf dist/{}",
     "start": "http-server -p 1823 ./dist -c-1",
     "test": "mocha --opts test/mocha.opts"
   },
