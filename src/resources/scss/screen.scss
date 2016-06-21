@@ -318,14 +318,14 @@ h1 {
 }
 
 .full-width-footer {
-	margin: 0 $scoper-padding-top * -1 $scoper-padding-top * -1;	
+	margin: $scoper-padding-top $scoper-padding-top * -1 $scoper-padding-top * -1;	
 
 	@include breakpoint(break-1) {
-		margin: 0 $scoper-padding-top-break-1 * -1 $scoper-padding-top-break-1 * -1;
+		margin: $scoper-padding-top-break-1 $scoper-padding-top-break-1 * -1 $scoper-padding-top-break-1 * -1;
 	}
 
 	@include breakpoint(break-2) {
-		margin: 0 $scoper-padding-side-break-2 * -1 $scoper-padding-top-break-2 * -1;
+		margin: $scoper-padding-top-break-2 $scoper-padding-side-break-2 * -1 $scoper-padding-top-break-2 * -1;
 	}
 }
 
