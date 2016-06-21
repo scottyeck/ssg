@@ -317,6 +317,18 @@ h1 {
 	}
 }
 
+.full-width-footer {
+	margin: 0 $scoper-padding-top * -1 $scoper-padding-top * -1;	
+
+	@include breakpoint(break-1) {
+		margin: 0 $scoper-padding-top-break-1 * -1 $scoper-padding-top-break-1 * -1;
+	}
+
+	@include breakpoint(break-2) {
+		margin: 0 $scoper-padding-side-break-2 * -1 $scoper-padding-top-break-2 * -1;
+	}
+}
+
 $gutter: 1rem;
 
 .row {
@@ -412,5 +424,7 @@ $gutter: 1rem;
 
 .fa.icon-med { font-size: 0.75em; }
 .fa.icon-small { font-size: 0.5em; }
+
+.bg-white { background-color: white; }
 
 @import "./lib/solarized-light";
