@@ -54,6 +54,14 @@ Post.prototype.setSummary = function() {
 	var md = this.get('markdown');
 	var summary = md.split(' ').slice(0, 30).join(' ') + '...';
 
+	/*
+	 * Truncate if it contains a codeblock.
+	 */
+	var codeBlockIdx = summary.indexOf('```');
+	if (codeBlockIdx > -1) {
+		summary = summary.substring(0, codeBlockIdx);
+	}
+
 	this.set('summary', marked(summary).html);
 };
 
