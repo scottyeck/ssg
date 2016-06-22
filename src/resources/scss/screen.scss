@@ -1,10 +1,18 @@
 @mixin clearfix() {
-	content: " ";
-	display: block;
+	&:after {
+		content: " ";
+		display: block;
+		clear: both;
+		height: 0;
+		width: 0;
+	}
 }
 
+$serif-stack: 'Roboto Slab, serif';
+$sans-serif-stack: 'Hammersmith One, sans-serif';
+
 $bodytype: (
-  font-family: 'Roboto Slab, serif',
+  font-family: $serif-stack,
   regular: 400,
   bold: 700,
   italic: italic,
@@ -12,7 +20,7 @@ $bodytype: (
 );
 
 $headingtype: (
-  font-family: 'Hammersmith One, sans-serif',
+  font-family: $sans-serif-stack,
   regular: 400,
   bold: 400,
   cap-height: 0.66
@@ -35,6 +43,50 @@ $hoverColour: 			$linkColour + #222;
 
 a {
 	transition: 0.2s ease color;
+}
+
+.button {
+	background-color: $linkColour;
+	color: white;
+	border-radius: 0.25rem;
+	cursor: pointer;
+	padding: 0.75rem 1.25rem;
+	font-size: 1.25rem;
+	font-weight: bold;
+	display: inline-block;
+	font-family: unquote($sans-serif-stack);
+
+	&:hover,
+	&:focus {
+		background-color: $linkColour - #181818;
+		color: white;
+	}
+
+	&:active {
+		background-color: $linkColour - #222;
+	}
+
+	+ .button {
+		margin-left: 1rem;
+	}
+
+	&.expand {
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	&.icon-button {
+		font-size: 1.5rem;
+		background-image: none;
+		text-align: center;
+		text-shadow: none;
+		&:hover,
+		&:active,
+		&:focus {
+			background-image: none;
+		}
+	}
 }
 
 .typeset {
@@ -344,9 +396,7 @@ $gutter: 1rem;
 	margin-left: $gutter * -0.5;
 	margin-right: $gutter * -0.5;
 
-	&:after {
-		@include clearfix();
-	}
+	@include clearfix();
 
 	.col {
 		float: left;
