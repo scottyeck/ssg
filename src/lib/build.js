@@ -1,18 +1,18 @@
 'use strict';
 
-var marked = require('meta-marked'),
-	glob = require('glob'),
-	path = require('path'),
-	pug = require('pug'),
-	_ = require('lodash'),
-	fs = require('fs'),
-	fse = require('fs-extra'),
-	rfr = require('rfr'),
-	GetSet = require('get-set');
+var marked 	= require('meta-marked'),
+	glob 	= require('glob'),
+	path 	= require('path'),
+	pug 	= require('pug'),
+	_ 		= require('lodash'),
+	fs 		= require('fs'),
+	fse 	= require('fs-extra'),
+	rfr 	= require('rfr'),
+	GetSet 	= require('get-set');
 
-var config = rfr('config'),
-	Post = rfr('src/lib/post'),
-	Listing = rfr('src/lib/listing');
+var config 	= rfr('config'),
+	Post 	= rfr('src/lib/post'),
+	Listing	= rfr('src/lib/listing');
 
 var DIR_NAMES = config.DIR;
 
@@ -27,14 +27,14 @@ function assembleListing() {
 		var postConfig = marked(postSource);
 
 		var post = new Post({
-			title: postConfig.meta.title,
-			date: new Date(postConfig.meta.date),
-			author: postConfig.meta.author,
-			email: postConfig.meta.email,
-			template: postConfig.meta.template,
-			html: postConfig.html,
-			markdown: postConfig.markdown,
-			issue: postConfig.meta.issue
+			title:		postConfig.meta.title,
+			date:		new Date(postConfig.meta.date),
+			author:		postConfig.meta.author,
+			email:		postConfig.meta.email,
+			template:	postConfig.meta.template,
+			html:		postConfig.html,
+			markdown:	postConfig.markdown,
+			issue:		postConfig.meta.issue
 		});
 
 		if (postConfig.meta.caption) {
@@ -59,10 +59,10 @@ function assembleRouteList(listing) {
 			slug: 'article'
 		});
 
-		var templatePath = 'src/views/content/article.pug',
-			routeParent = '/dist/blog',
-			routeName = post.filename;
-			htmlPath = path.join('dist/blog', post.filename);
+		var templatePath 	= 'src/views/content/article.pug',
+			routeParent 	= '/dist/blog',
+			routeName 		= post.filename;
+			htmlPath 		= path.join('dist/blog', post.filename);
 
 		routes.push({
 			template: templatePaht,
