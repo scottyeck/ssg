@@ -15,10 +15,21 @@ block content
 				
 				.col.small-9.medium-10
 					p
-						em Have an opinion? Want to make this post better? This post is on GitHub, so <a href="#{post.issueUrl}">leave a comment</a> or submit a pull-request.
+						em Have an opinion? Want to make this post better? It's up on GitHub, so <a href="#{post.issueUrl}">leave a comment</a> or submit a pull-request.
 
 				.col.small-3.medium-2
 
 					p
 						a.button.icon-button.expand.margin-top-tiny(href= post.issueUrl)
 							span.fa.fa-comment-o
+
+			if (post.contributors && post.contributors.length)
+				p
+					em
+						strong Contributors: 
+						br
+						each contributor, idx in post.contributors
+							| #{contributor.name} - 
+							a(href= contributor.url)= contributor.username
+							if (idx < post.contributors.length -1 )
+								| #{", "}

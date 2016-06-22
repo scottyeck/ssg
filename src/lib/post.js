@@ -47,7 +47,7 @@ Post = GetSet.interface({
 	href:			{ type: 'string',	required: false },
 	issue:			{ type: 'number',	required: true 	},
 	issueUrl:		{ type: 'string',	required: false,	validate: validateIssueUrl },
-	contributors:	{ type: 'array',	required: false },
+	contributors:	{ type: 'array',	required: true },
 	previous:		{ type: 'object', 	required: false,	validate: validatePost },
 	next:			{ type: 'object', 	required: false,	validate: validatePost },
 });
@@ -57,6 +57,7 @@ Post.prototype.onConstruct = function() {
 	this.setFormattedDate();
 	this.setSummary();
 	this.setIssueUrl();
+	this.handleContributors();
 };
 
 Post.prototype.setIssueUrl = function() {
@@ -64,6 +65,32 @@ Post.prototype.setIssueUrl = function() {
 		issueUrl = 'https://github.com/scottyeck/blog/issues/' + issueNum;
 
 	this.set('issueUrl', issueUrl);
+};
+
+Post.prototype.handleContributors = function() {
+
+	var contributors = this.get('contributors').slice(),
+		re = /^([a-zA-Z]+\s)+\<@[a-zA-Z\d\_\-]+\>$/;
+
+	var result = [];
+
+	_.each(contributors, function(contributor) {
+
+		if (!re.test(contributor)) {
+			throw Error('TODO');
+		}
+
+		var name = contributor.replace(/<@[a-zA-Z\d\_\-]+\>/, '').trim(),
+			username = contributor.replace(/^[^@]+|@|>$/g, '').trim();
+
+		result.push({
+			name: name,
+			username: '@' + username,
+			url: '//github.com/' + username
+		});
+	});
+
+	this.set('contributors', result);
 };
 
 Post.prototype.setSummary = function() {

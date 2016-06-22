@@ -27,14 +27,15 @@ function assembleListing() {
 		var postConfig = marked(postSource);
 
 		var post = new Post({
-			title:		postConfig.meta.title,
-			date:		new Date(postConfig.meta.date),
-			author:		postConfig.meta.author,
-			email:		postConfig.meta.email,
-			template:	postConfig.meta.template,
-			html:		postConfig.html,
-			markdown:	postConfig.markdown,
-			issue:		postConfig.meta.issue
+			title:			postConfig.meta.title,
+			date:			new Date(postConfig.meta.date),
+			author:			postConfig.meta.author,
+			email:			postConfig.meta.email,
+			template:		postConfig.meta.template,
+			html:			postConfig.html,
+			markdown:		postConfig.markdown,
+			issue:			postConfig.meta.issue,
+			contributors:	postConfig.meta.contributors || []
 		});
 
 		if (postConfig.meta.caption) {
