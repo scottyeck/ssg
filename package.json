@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "rm -rf ./posts && cp -r node_modules/blog/posts ./posts",
     "dev": "npm run build && concurrently \"npm run dev:html\" \"npm run dev:sass\" \"npm run dev:js\" \"npm start\"",
     "dev:js": "webpack --watch",
     "dev:html": "chokidar 'config.json' 'src/**/*' 'posts/**/*.md' -c 'npm run build:html'  -i 'src/resources/**/*'",
@@ -22,6 +23,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "blog": "git+ssh://git@github.com/scottyeck/blog.git",
     "dateformat": "^1.0.12",
     "fs-extra": "^0.30.0",
     "get-set": "git+ssh://git@github.com/scottyeck/getset.git",
