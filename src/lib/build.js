@@ -33,7 +33,8 @@ function assembleListing() {
 			email: postConfig.meta.email,
 			template: postConfig.meta.template,
 			html: postConfig.html,
-			markdown: postConfig.markdown
+			markdown: postConfig.markdown,
+			issue: postConfig.meta.issue
 		});
 
 		if (postConfig.meta.caption) {

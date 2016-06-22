@@ -24,6 +24,11 @@ function validateHref(href) {
 	return re.test(href);
 }
 
+function validateIssueUrl(url) {
+	var re = /^http(s)*:\/\/github\.com\/([a-z]+\/){2}issues\/\d+$/;
+    return re.test(url);
+}
+
 function validatePost(post) {
 	return post instanceof Post;
 }
@@ -40,6 +45,9 @@ Post = GetSet.interface({
 	formattedDate:	{ type: 'string',	required: false },
 	summary:		{ type: 'string',	required: false },
 	href:			{ type: 'string',	required: false },
+	issue:			{ type: 'number',	required: true 	},
+	issueUrl:		{ type: 'string',	required: false,	validate: validateIssueUrl },
+	contributors:	{ type: 'array',	required: false },
 	previous:		{ type: 'object', 	required: false,	validate: validatePost },
 	next:			{ type: 'object', 	required: false,	validate: validatePost },
 });
@@ -48,6 +56,14 @@ Post.prototype.onConstruct = function() {
 	this.setFilename();
 	this.setFormattedDate();
 	this.setSummary();
+	this.setIssueUrl();
+};
+
+Post.prototype.setIssueUrl = function() {
+	var issueNum = this.get('issue').toString(),
+		issueUrl = 'https://github.com/scottyeck/blog/issues/' + issueNum;
+
+	this.set('issueUrl', issueUrl);
 };
 
 Post.prototype.setSummary = function() {
