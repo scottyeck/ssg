@@ -18,10 +18,11 @@ $headingtype: (
   cap-height: 0.66
 );
 
-$bodyColour: 			#333;
+$bodyColour: 			#333333;
 $captionColour: 		#A0ABAF;
 $linkColour: 			#3F940E;
 $backgroundColour: 		#F1F1F1;
+$codeBackgroundColour:	#FFFFFF;
 $hoverColour: 			$linkColour + #222;
 
 @import "node_modules/sassline/assets/sass/sassline-base";
@@ -34,6 +35,13 @@ $hoverColour: 			$linkColour + #222;
 
 a {
 	transition: 0.2s ease color;
+}
+
+.typeset {
+	code {
+		padding: 0.25em 0.5em;
+		border-radius: 0.25em;
+	}
 }
 
 body,
