@@ -3,5 +3,7 @@ npm-debug.log*
 dist/**/*
 !dist/.*
 .DS_Store
+.ftppass
+ftp.json
 
 src/resources/scss/lib
