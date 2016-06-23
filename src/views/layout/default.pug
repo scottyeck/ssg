@@ -47,11 +47,19 @@ html(lang= "en")
 								a(href= "//highlightjs.org/") Highlight.js
 								|  &bull; 
 								a(href= "//jade-lang.com/") Pug
+								|  &bull; 
+								a(href= "//jquery.com/") Ol' Reliable
 
 						
 						.clearfix
 							
-							p.inline-block.left &copy; 2016 Scotty Eckenthal
+							p.inline-block.left 
+								| &copy; 
+								span(data-replace= "year") 2016
+								|  Scotty Eckenthal
+								br
+								| Proudly published under the 
+								a(href= "//choosealicense.com/licenses/mit/") MIT Open Source License.
 
 							ul.reset-list.social-list
 

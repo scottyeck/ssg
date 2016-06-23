@@ -331,6 +331,10 @@ nav {
 
 .page-footer {
 	font-size: 75%;
+
+	.typeset p a {
+		text-shadow: none;
+	}
 }
 
 .blog-post {

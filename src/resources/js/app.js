@@ -85,4 +85,6 @@ $(function() {
 			}
 		}, 150));
 	}
+
+	$('[data-replace="year"]').text(new Date().getFullYear());
 });
