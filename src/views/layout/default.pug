@@ -48,17 +48,17 @@ html(lang= "en")
 								|  &bull; 
 								a(href= "#") Pug
 
+						
 						.clearfix
-							p.left &copy; 2016 Scotty Eckenthal
+							
+							p.inline-block.left &copy; 2016 Scotty Eckenthal
 
-							p.inline-block.right
-								
-								ul.reset-list.social-list
+							ul.reset-list.social-list
 
-									each entry in locals.social
-										li.inline-block
-											a.margin-left-small(href= entry.href)
-												span.fa(class= "fa-" + entry.slug)
+								each entry in locals.social
+									li.inline-block
+										a.margin-left-small(href= entry.href)
+											span.fa(class= "fa-" + entry.slug)
 
 	script(src="https://use.fontawesome.com/acb37e2f85.js")
 	script(src="/js/app.js")

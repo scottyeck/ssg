@@ -428,7 +428,7 @@ $gutter: 1rem;
 	margin-bottom: 0;
 	list-style-type: none;
 	li {
-		margin-left: 0;
+		margin-left: 0 !important;
 	}
 }
 
@@ -455,6 +455,10 @@ $gutter: 1rem;
 
 .margin-left-small {
 	margin-left: 0.75rem;
+}
+
+.margin-right-small {
+	margin-right: 0.75rem;
 }
 
 .margin-bottom-large {
