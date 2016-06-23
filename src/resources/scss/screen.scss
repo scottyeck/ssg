@@ -307,6 +307,7 @@ nav {
 .hero-nav {
 	width: 100%;
 	position: absolute;
+	top: 0;
 	padding: 0.5rem 1rem 0;
 	opacity: 1;
 	visibility: visible;
@@ -358,42 +359,6 @@ h1 {
 
 .vert-center-parent:before {
 	@include vert-center-ghost();	
-}
-
-.full-width-module {
-	margin: $scoper-padding-top * -1 $scoper-padding-top * -1 0;	
-
-	@include breakpoint(break-1) {
-		margin: $scoper-padding-top-break-1 * -1 $scoper-padding-top-break-1 * -1 0;
-	}
-
-	@include breakpoint(break-2) {
-		margin: $scoper-padding-top-break-2 * -1 $scoper-padding-side-break-2 * -1 0;
-	}
-}
-
-.full-width-footer {
-	margin: $scoper-padding-top $scoper-padding-top * -1 $scoper-padding-top * -1;	
-
-	@include breakpoint(break-1) {
-		margin: $scoper-padding-top-break-1 $scoper-padding-top-break-1 * -1 $scoper-padding-top-break-1 * -1;
-	}
-
-	@include breakpoint(break-2) {
-		margin: $scoper-padding-top-break-2 $scoper-padding-side-break-2 * -1 $scoper-padding-top-break-2 * -1;
-	}
-}
-
-.fix-margins {
-	margin-bottom: $scoper-padding-top * -1;
-
-	@include breakpoint(break-1) {
-		margin-bottom: $scoper-padding-top-break-1 * -1;
-	}
-
-	@include breakpoint(break-2) {
-		margin-bottom: $scoper-padding-top-break-2 * -1;
-	}
 }
 
 $gutter: 1rem;

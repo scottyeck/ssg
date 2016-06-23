@@ -3,15 +3,17 @@ mixin nav(config)
 	- config = config || {};
 
 	nav.centered-page-content.clearfix(class= config.classList)
-		ul.reset-list.left.inline-block
 
-			each entry in locals.nav
-				li
-					a(href= entry.href)= entry.text
+		.single-measure
+			ul.reset-list.left.inline-block
 
-		ul.reset-list.social-list.inline-block
+				each entry in locals.nav
+					li
+						a(href= entry.href)= entry.text
 
-			each entry in locals.social
-				li
-					a(href= entry.href)
-						span.fa(class= "fa-" + entry.slug)
+			ul.reset-list.social-list.inline-block
+
+				each entry in locals.social
+					li
+						a(href= entry.href)
+							span.fa(class= "fa-" + entry.slug)
