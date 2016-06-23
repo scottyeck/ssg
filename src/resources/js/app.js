@@ -15,7 +15,7 @@ $(function() {
 		menu;
 
 	function Menu(ops) {
-		this.visible = !($('body').data('route') === 'index');
+		this.visible = $('body').hasClass('nav-active');
 	}
 
 	Menu.prototype.hide = function() {
@@ -37,7 +37,7 @@ $(function() {
 	};
 
 	function Trigger() {
-		this.visible = !($('body').data('route') === 'index');
+		this.visible = $('body').hasClass('show-trigger');
 	}
 
 	Trigger.prototype.hide = function() {
@@ -69,7 +69,7 @@ $(function() {
 		$('body').removeClass('disable-transition');
 	}, 750);
 
-	if ($('body').data('route') === 'index') {
+	if ($('.hero-nav').length > 0) {
 		trigger.hide();
 
 		var navHeight = $('.hero-nav').outerHeight();

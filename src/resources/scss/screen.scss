@@ -26,9 +26,11 @@ $headingtype: (
   cap-height: 0.66
 );
 
+$leaf-green: #3F940E;
+
 $bodyColour: 			#333333;
 $captionColour: 		#A0ABAF;
-$linkColour: 			#3F940E;
+$linkColour: 			$leaf-green;
 $backgroundColour: 		#F1F1F1;
 $codeBackgroundColour:	#FFFFFF;
 $hoverColour: 			$linkColour + #222;
@@ -112,6 +114,7 @@ $header-height: 60px;
 $header-height-break-1: 70px;
 $header-height-break-2: 75px;
 $header-height-break-3: 85px;
+$header-height-break-4: 95px;
 
 $scoper-padding-top: 16px;
 $scoper-padding-top-break-1: 32px;
@@ -196,6 +199,10 @@ $nav-open-transition-time: .2s;
 
 	@include breakpoint(break-3) {
 		top: $header-height-break-3 * -1;
+	}
+
+	@include breakpoint(break-4) {
+		top: $header-height-break-4 * -1;
 	}
 
 	.nav-active & {
@@ -311,6 +318,20 @@ nav {
 	}
 }
 
+.plain-hero {
+	height: 22rem;
+}
+
+// .plain-hero-content {
+// 	padding-left: 1rem;
+// 	padding-right: 1rem;
+
+// 	@include breakpoint(break-1) {
+// 		padding-left: 0;
+// 		padding-right: 0;
+// 	}
+// }
+
 .hero-nav {
 	width: 100%;
 	position: absolute;
@@ -318,10 +339,12 @@ nav {
 	opacity: 1;
 	visibility: visible;
 
-	a {
-		color: rgba(#FFF, 0.75);
-		&:hover { color: #FFF; }
-		&:active { color: rgba(#FFF, 0.75); }
+	&.ghost {
+		a {
+			color: rgba(#FFF, 0.75);
+			&:hover { color: #FFF; }
+			&:active { color: rgba(#FFF, 0.75); }
+		}
 	}
 
 	transition: visibility 0s, opacity 0.2s ease;
@@ -484,5 +507,6 @@ $gutter: 1rem;
 .fa.icon-small { font-size: 0.5em; }
 
 .bg-white { background-color: white; }
+.bg-grey { background-color: #999; }
 
 @import "./lib/solarized-light";

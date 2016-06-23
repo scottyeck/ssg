@@ -20,8 +20,8 @@
 		},
 		"blogroll": {
 			"title": "@scottyeck's blog",
-			"showNav": true,
-			"showTrigger": true
+			"showNav": false,
+			"showTrigger": false
 		}
 	},
 	"nav": [{

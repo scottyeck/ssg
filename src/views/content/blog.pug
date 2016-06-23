@@ -1,12 +1,26 @@
 extends ../layout/default.pug
 
 block content
-	.centered-page-content.top-module
+
+	section.plain-hero.bg-white.full-width-module
+
+		.centered-page-content.height-full.rel
+
+			+nav({
+				classList: ["hero-nav"]
+			})
+
+			.plain-hero-content.height-full.vert-center-parent
+				.vert-center.typeset
+
+					h1 blog
+
+	.centered-page-content.spaced-page-content.fix-margins
 		
 		article.single-measure
 
 			.typeset
-				h1= locals.title
+				h1 Latest
 
 			ul.reset-list
 				each entry in locals.blogroll
