@@ -153,26 +153,33 @@ $nav-open-transition-time: .2s;
 	transition: padding-top $nav-close-transition-time ease;
 	@include disable-transition();
 	
-	padding: $scoper-padding-top;
-	@include breakpoint(break-1) {
-		padding: $scoper-padding-top-break-1;
-	}
-
-	@include breakpoint(break-2) {
-		padding: $scoper-padding-top-break-2 $scoper-padding-side-break-2;
-	}
-
 	.nav-active & {
 		transition: padding-top $nav-open-transition-time ease;
-		padding-top: $header-height + $scoper-padding-top;
+		padding-top: $header-height;
 
 		@include breakpoint(break-1) {
-			padding-top: $header-height-break-1 + $scoper-padding-top-break-1;
+			padding-top: $header-height-break-1;
 		}
 
 		@include breakpoint(break-2) {
-			padding-top: $header-height-break-2 + $scoper-padding-top-break-2;
+			padding-top: $header-height-break-2;
 		}
+	}
+}
+
+.page-module {
+	padding: 1rem;
+	
+	@include breakpoint(break-1) {
+		padding: 2rem 1rem;
+	}
+
+	@include breakpoint(break-2) {
+		padding: 3rem 2rem;
+	}
+
+	@include breakpoint(break-3) {
+		padding: 5rem 3rem;
 	}
 }
 
@@ -286,31 +293,6 @@ nav {
 	}
 }
 
-.centered-page-content {
-	max-width: 40rem;
-	margin: 0 auto;
-}
-
-.spaced-page-content {
-	padding-top: 2rem;
-	padding-bottom: 2rem;
-
-	@include breakpoint(break-1) {
-		padding-top: 3rem;
-		padding-bottom: 3rem;		
-	}
-}
-
-.top-module {
-	padding-top: 0;
-	@media screen and (min-width: 500px) {
-		padding-top: 1rem;
-	}
-	@include breakpoint(break-1) {
-		padding-top: 2rem;
-	}
-}
-
 .hero {
 	height: 22rem;
 	@include breakpoint(break-1) {
@@ -321,16 +303,6 @@ nav {
 .plain-hero {
 	height: 22rem;
 }
-
-// .plain-hero-content {
-// 	padding-left: 1rem;
-// 	padding-right: 1rem;
-
-// 	@include breakpoint(break-1) {
-// 		padding-left: 0;
-// 		padding-right: 0;
-// 	}
-// }
 
 .hero-nav {
 	width: 100%;
@@ -409,6 +381,18 @@ h1 {
 
 	@include breakpoint(break-2) {
 		margin: $scoper-padding-top-break-2 $scoper-padding-side-break-2 * -1 $scoper-padding-top-break-2 * -1;
+	}
+}
+
+.fix-margins {
+	margin-bottom: $scoper-padding-top * -1;
+
+	@include breakpoint(break-1) {
+		margin-bottom: $scoper-padding-top-break-1 * -1;
+	}
+
+	@include breakpoint(break-2) {
+		margin-bottom: $scoper-padding-top-break-2 * -1;
 	}
 }
 
