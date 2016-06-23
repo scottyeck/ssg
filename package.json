@@ -33,8 +33,7 @@
     "meta-marked": "0.4.1",
     "node-sass": "3.7.0",
     "pug": "^2.0.0-alpha6",
-    "sassline": "^2.1.2",
-    "typesettings": "^3.0.1"
+    "sassline": "^2.1.2"
   },
   "devDependencies": {
     "chai": "3.5.0",

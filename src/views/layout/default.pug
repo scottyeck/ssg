@@ -34,9 +34,31 @@ html(lang= "en")
 			.page-scoper
 				block content
 
-				footer.page-module.bg-white
-					.single-measure.text-center
-						p Smell my foot
+				footer.page-footer.page-module.bg-white
+					.single-measure.typeset
+						p
+							| This site was built using great tools.
+							br
+							em
+								a(href= "#") Sassline
+								|  &bull; 
+								a(href= "#") Marked
+								|  &bull; 
+								a(href= "#") Highlight.js
+								|  &bull; 
+								a(href= "#") Pug
+
+						.clearfix
+							p.left &copy; 2016 Scotty Eckenthal
+
+							p.inline-block.right
+								
+								ul.reset-list.social-list
+
+									each entry in locals.social
+										li.inline-block
+											a.margin-left-small(href= entry.href)
+												span.fa(class= "fa-" + entry.slug)
 
 	script(src="https://use.fontawesome.com/acb37e2f85.js")
 	script(src="/js/app.js")

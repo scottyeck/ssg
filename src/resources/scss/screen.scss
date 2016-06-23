@@ -329,6 +329,14 @@ nav {
 	}
 }
 
+.page-footer {
+	font-size: 75%;
+}
+
+.blog-post {
+	font-size: 87.5%;
+}
+
 .ghost * {
 	color: white !important;
 }
@@ -443,6 +451,10 @@ $gutter: 1rem;
 
 .margin-top-tiny {
 	margin-top: 0.5rem;
+}
+
+.margin-left-small {
+	margin-left: 0.75rem;
 }
 
 .margin-bottom-large {
