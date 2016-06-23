@@ -168,18 +168,14 @@ $nav-open-transition-time: .2s;
 }
 
 .page-module {
-	padding: 1rem;
+	padding: 3rem 1rem;
 	
 	@include breakpoint(break-1) {
-		padding: 2rem 1rem;
+		padding: 5rem 2rem;
 	}
 
 	@include breakpoint(break-2) {
-		padding: 3rem 2rem;
-	}
-
-	@include breakpoint(break-3) {
-		padding: 5rem 3rem;
+		padding: 7rem 3rem;
 	}
 }
 
@@ -428,12 +424,21 @@ $gutter: 1rem;
 	}
 }
 
+.reset-child-margins {
+	> *:first-child {
+		margin-top: 0;
+	}
+	> *:last-child {
+		margin-bottom: 0;
+	}
+}
+
 .margin-top-none {
 	margin-top: 0;
 }
 
 .padding-top-none {
-	padding-top: 0;
+	padding-top: 0 !important;
 }
 
 .margin-top-tiny {
