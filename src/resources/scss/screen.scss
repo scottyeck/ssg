@@ -8,6 +8,10 @@
 	}
 }
 
+//
+// Sassline settings
+// ==========================================================================
+
 $serif-stack: 'Roboto Slab, serif';
 $sans-serif-stack: 'Hammersmith One, sans-serif';
 
@@ -35,6 +39,28 @@ $backgroundColour: 		#F1F1F1;
 $codeBackgroundColour:	#FFFFFF;
 $hoverColour: 			$linkColour + #222;
 
+//
+// Grid-gen settings
+// ==========================================================================
+
+$grid-gen-container-class: 		"grid-container";
+$grid-gen-row-class: 			"row";
+$grid-gen-column-class: 		"col";
+$grid-gen-column-class-prefix: 	"small-";
+
+// 
+// App-specific configuration
+// 
+
+@function _format-class-medium($count) {
+	@return "medium-" + $count;
+}
+
+@function _format-class-large($count) {
+	@return "large-" + $count;
+}
+
+@import "node_modules/scss-grid-gen/core";
 @import "node_modules/sassline/assets/sass/sassline-base";
 
 @mixin disable-transition() {
@@ -369,46 +395,27 @@ h1 {
 	@include vert-center-ghost();	
 }
 
-$gutter: 1rem;
+// 
+// Base CSS props
+// 
+@include grid-gen-declarations();
 
-.row {
+// 
+// Responsive props
+// 
+@include breakpoint(break-1) {
+	@include grid-gen-column-classes(
+		$class-formatter: _format-class-medium
+	);
+}
+@include breakpoint(break-2) {
+	@include grid-gen-column-classes(
+		$class-formatter: _format-class-large
+	);
+}
 
-	margin-left: $gutter * -0.5;
-	margin-right: $gutter * -0.5;
-
-	@include clearfix();
-
-	.col {
-		float: left;
-		padding-left: $gutter * 0.5;
-		padding-right: $gutter * 0.5;
-
-		&.end {
-			float: right;
-		}
-	}
-
-	@for $i from 1 through 12 {
-		.small-#{$i} {
-			width: 100% / 12 * $i;
-		}
-	}
-
-	@include breakpoint(break-1) {
-		@for $i from 1 through 12 {
-			.medium-#{$i} {
-				width: 100% / 12 * $i;
-			}
-		}
-	}
-
-	@include breakpoint(break-2) {
-		@for $i from 1 through 12 {
-			.large-#{$i} {
-				width: 100% / 12 * $i;
-			}
-		}
-	}
+.end {
+	float: right;
 }
 
 // 
