@@ -49,7 +49,7 @@
     "lodash.debounce": "^4.0.6",
     "mocha": "2.4.5",
     "rfr": "1.2.3",
-    "scss-grid-gen": "0.0.1",
+    "scss-grid-gen": "0.0.2",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0",
     "webpack": "^1.13.1"
