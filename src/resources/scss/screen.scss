@@ -122,6 +122,12 @@ a {
 		padding: 0.25em 0.5em;
 		border-radius: 0.25em;
 	}
+
+	pre {
+		overflow-x: auto;
+		overflow-y: hidden;
+		white-space: pre;
+	}
 }
 
 body,
