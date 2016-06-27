@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "update-posts": "rm -rf node_modules/blog && npm install",
     "postinstall": "rm -rf ./posts && cp -r node_modules/blog/posts ./posts",
     "dev": "npm run build && concurrently \"npm run dev:html\" \"npm run dev:sass\" \"npm run dev:js\" \"npm start\"",
     "dev:js": "webpack --watch",
