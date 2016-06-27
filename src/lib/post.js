@@ -120,7 +120,13 @@ Post.prototype.setFilename = function() {
 	
 	var slug = this.get('title')
 		.toLowerCase()
-		.replace(/\s/g, '-')
+		.replace(/-/g, '')
+		.split(' ')
+		.slice(0, 6)
+		.filter(function(entry) {
+			return entry != '';
+		})
+		.join('-')
 		.replace(/[^a-zA-Z-]/g, '');
 
 	this.set('filename', slug + '.html');
