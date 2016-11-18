@@ -5,7 +5,7 @@ var rfr = require('rfr');
 var verifyConfigFiles = rfr('tools/utils/verify-config-files'),
 	_ftp, _auth, _dest;
 
-var ENV = 'dev';
+var ENV = process.env.NODE_ENV || 'stage';
 
 verifyConfigFiles(['ftp.json', '.ftppass']);
 

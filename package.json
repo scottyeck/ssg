@@ -17,7 +17,8 @@
     "build:lib": "npm run copy:lib:sass",
     "copy:lib:sass": "rm -rf src/resources/scss/lib && mkdir src/resources/scss/lib && cp -r node_modules/highlight.js/styles/solarized-light.css src/resources/scss/lib/_solarized-light.scss",
     "clean": "ls dist | grep -v .htaccess | xargs -I {} rm -rf dist/{}",
-    "deploy": "grunt deploy",
+    "deploy:dev": "NODE_ENV=dev grunt deploy",
+    "deploy:prod": "NODE_ENV=production grunt deploy",
     "start": "http-server -p 1823 ./dist -c-1",
     "test": "mocha --opts test/mocha.opts"
   },
